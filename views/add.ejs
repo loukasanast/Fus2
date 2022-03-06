@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Soccer Teams</title>
+        <style>
+            th, td{
+                min-width:50px;
+                height:30px;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Add new team</h3>
+        <% if(validation) { %>
+            <div style="color:red"><%= validation %></div>
+        <% } %>
+        <form method="post" action="add">
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name" value="<%= team.name %>" /></td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td><input type="text" name="city" value="<%= team.city %>" /></td>
+                </tr>
+                <tr>
+                    <td>Year:</td>
+                    <td><input type="text" name="year" value="<%= team.year %>" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit">Add</button></td>
+                </tr>
+            </table>
+        </form>
+        <a href="/">Back to home</a>
+    </body>
+</html>
