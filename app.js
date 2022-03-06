@@ -4,7 +4,9 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const routes = require('./routes/teamRoutes');
 
-mongoose.connect("mongodb+srv://***:***@cluster0.m6mqc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useNewUrlParser: true })
+require('dotenv').config();
+
+mongoose.connect(process.env.DEFAULT_CONNECTION, { useNewUrlParser: true })
     .then(() => console.log('Connected to database'))
     .catch((err) => console.log('Error occured', err))
 
@@ -17,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', routes);
 
-const port = process.env.port || 3000;
+const port = process.env.port || 3001;
 
 app.listen(port, () => console.log(`Server running at port ${port}...`));
 
